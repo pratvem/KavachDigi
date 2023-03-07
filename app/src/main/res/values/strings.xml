@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Kavach</string>
+    <string name="let_s_start">Let’s Start</string>
+    <string name="by_proceeding_you_confirm_you_accept_kavach_s_agreement_privacy_policy"><![CDATA[By proceeding, you confirm you accept Kavach’s Agreement & Privacy Policy]]></string>
+    <string name="always_be_safe">Always be safe</string>
+    <string name="back">Back</string>
+    <string name="exponentially_increasing_frauds_with_hyper_growth_in_digitization">Exponentially increasing frauds with hyper growth in digitization</string>
+    <string name="more_than_1000cr_lost_to_frauds_last_year">More than <b><font size="20">1000cr</font></b> lost to frauds last year</string>
+    <string name="_1_out_of_4_are_victims_of_a_fraud"><b><font size="20">1 out of 4 are victims</font></b>  of a fraud</string>
+    <string name="frauds_are_no_longer_limited_to_insecure_websites_or_virus_attacks_we_will_warn_you_if_we_detect_anything_suspicious_fraudulent_which_can_be_an_app_or_a_website_or_a_link_and_much_more">Frauds are no longer limited to insecure websites or virus attacks. We will <b>warn</b> you if we <b>detect</b> anything suspicious/fraudulent which can be an app or a website or a link and much more</string>
+    <string name="proceed">Proceed</string>
+    <string name="kavach_is_against_showing_ads_even_though_it_can_help_us_sustain_and_maybe_a_lot_more_as_we_believe_privacy_is_a_right_all_of_us_ought_to_have_and_even_more_so_in_the_digital_world_we_don_t_want_to_add_yet_another_tracker_cookie_for_ads_to_be_shown_and_instead_want_to_help_you_delete_and_stop_other_from_tracking_you_incessantly">Kavach is against showing ads even though it can help us sustain(and maybe a lot more) as we believe privacy is a right all of us ought to have and even more so in the digital world. We don’t want to add yet another tracker cookie for ads to be shown and instead want to help you delete and stop other from tracking you incessantly.</string>
+    <string name="we_have_the_following_subscriptions_to_help_us_sustain_the_infrastructure_needed_and_provide_you_the_best_shield_of_digital_fraud_protection_keeping_up_with_sophisticated_fraudsters">We have the following subscriptions to help us sustain the infrastructure needed and provide you the best shield of digital fraud protection keeping up with sophisticated fraudsters.</string>
+    <string name="introductory_limited_time_offer">Introductory Limited Time Offer!</string>
+    <string name="any_url_s_link_shield">Any URL’s / Link Shield</string>
+    <string name="no_ads">No Ads</string>
+    <string name="introductory_offer_of_free_additional_protections_released_in_the_next_3_months">Introductory offer of free additional protections released in the next 3 months</string>
+    <string name="choose_your_plan">Choose Your Plan</string>
+    <string name="digital_fraud_protection">Digital fraud Protection</string>
+    <string name="rs">Rs</string>
+    <string name="_129">129</string>
+    <string name="per_year">/ Per Year</string>
+    <string name="_2_year">/ 2 Year</string>
+    <string name="_209">209</string>
 </resources>

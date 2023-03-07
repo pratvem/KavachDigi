@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_drawable"
+        tools:context=".ui.subscription.SubscriptionActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_18sdp">
+
+
+                <include layout="@layout/layout_back" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/subscription" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/maven_pro_regular_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:lineSpacingExtra="@dimen/_4sdp"
+                    android:text="@string/kavach_is_against_showing_ads_even_though_it_can_help_us_sustain_and_maybe_a_lot_more_as_we_believe_privacy_is_a_right_all_of_us_ought_to_have_and_even_more_so_in_the_digital_world_we_don_t_want_to_add_yet_another_tracker_cookie_for_ads_to_be_shown_and_instead_want_to_help_you_delete_and_stop_other_from_tracking_you_incessantly"
+                    android:textSize="@dimen/_12ssp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/maven_pro_regular_text_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:lineSpacingExtra="@dimen/_4sdp"
+                    android:text="@string/we_have_the_following_subscriptions_to_help_us_sustain_the_infrastructure_needed_and_provide_you_the_best_shield_of_digital_fraud_protection_keeping_up_with_sophisticated_fraudsters"
+                    android:textSize="@dimen/_12ssp" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_22sdp"
+                    app:cardBackgroundColor="@color/black_20"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/white_15"
+                    app:strokeWidth="@dimen/_1sdp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clipToPadding="false"
+                        android:orientation="vertical"
+                        android:paddingHorizontal="@dimen/_24sdp"
+                        android:paddingVertical="@dimen/_18sdp">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/em_garamon_semibold_text_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="@dimen/_minus8sdp"
+                        android:layout_marginEnd="@dimen/_minus8sdp"
+                            android:drawableStart="@drawable/subscription_icon"
+                            android:drawablePadding="@dimen/_3sdp"
+                            android:text="@string/introductory_limited_time_offer"
+                            android:textColor="@color/teal_100"
+                            android:textSize="@dimen/_14ssp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_1sdp"
+                            android:layout_marginStart="@dimen/_minus10sdp"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:layout_marginEnd="@dimen/_minus10sdp"
+                            android:background="@color/white_15" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                app:srcCompat="@drawable/round_drawable_yellow" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/maven_pro_medium_text_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_7sdp"
+                                android:lineSpacingExtra="@dimen/_4sdp"
+                                android:text="@string/any_url_s_link_shield" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                app:srcCompat="@drawable/round_drawable_yellow" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/maven_pro_medium_text_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_7sdp"
+                                android:lineSpacingExtra="@dimen/_4sdp"
+                                android:text="@string/no_ads" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_12sdp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                app:srcCompat="@drawable/round_drawable_yellow" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                style="@style/maven_pro_medium_text_style"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_7sdp"
+                                android:lineSpacingExtra="@dimen/_4sdp"
+                                android:text="@string/introductory_offer_of_free_additional_protections_released_in_the_next_3_months" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/em_garamon_semibold_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:text="@string/choose_your_plan"
+                    android:textSize="@dimen/_18ssp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    style="@style/maven_pro_regular_text_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:text="@string/digital_fraud_protection"
+                    android:textSize="@dimen/_12ssp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/stroke_gradient">
+
+
+                        <TextView
+                            android:id="@+id/tvRs"
+                            style="@style/maven_pro_semibold_text_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_11sdp"
+                            android:layout_marginTop="@dimen/_11sdp"
+                            android:text="@string/rs"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvPrice"
+                            style="@style/maven_pro_semibold_text_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_11ssp"
+                            android:text="@string/_129"
+                            android:textSize="@dimen/_28ssp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/tvRs"
+                            app:layout_constraintTop_toBottomOf="@id/tvRs" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/maven_pro_regular_text_style"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_3sdp"
+                            android:text="@string/per_year"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/tvPrice"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/tvPrice" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_8sdp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/check_round" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_18sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/stroke_light_white">
+
+
+                        <TextView
+                            android:id="@+id/tvRs2"
+                            style="@style/maven_pro_semibold_text_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_11sdp"
+                            android:layout_marginTop="@dimen/_11sdp"
+                            android:text="@string/rs"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvPrice2"
+                            style="@style/maven_pro_semibold_text_style"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_11ssp"
+                            android:text="@string/_209"
+                            android:textSize="@dimen/_28ssp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/tvRs2"
+                            app:layout_constraintTop_toBottomOf="@id/tvRs2" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/maven_pro_regular_text_style"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_3sdp"
+                            android:text="@string/_2_year"
+                            android:textSize="@dimen/_11ssp"
+                            app:layout_constraintBaseline_toBaselineOf="@id/tvPrice2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/tvPrice2" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/check_round" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnStart"
+                    style="@style/maven_pro_semibold_button_style_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="0dp"
+                    android:text="@string/proceed" />
+            </LinearLayout>
+
+        </ScrollView>
+
+    </RelativeLayout>
+</layout>
