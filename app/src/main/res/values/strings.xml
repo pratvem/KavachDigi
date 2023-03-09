@@ -22,4 +22,23 @@
     <string name="per_year">/ Per Year</string>
     <string name="_2_year">/ 2 Year</string>
     <string name="_209">209</string>
+    <string name="news_title">News Title</string>
+    <string name="lorem_ipsum_dolor_sit_amet_consectetur_adipiscing_elit_sed_erat_nulla">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed erat nulla...</string>
+    <string name="_12_apr_2022">12 Apr 2022</string>
+    <string name="protection_from_phishing_fraud_links"><![CDATA[Protection from Phishing & Fraud links]]></string>
+    <string name="whatsapp_scam_protection">Whatsapp Scam Protection</string>
+    <string name="scan_apps_for_vulnerabilities_protection"><![CDATA[Scan Apps for vulnerabilities & Protection]]></string>
+    <string name="wifi_bluetooth_protection"><![CDATA[Wifi & Bluetooth Protection]]></string>
+    <string name="latest_news">Latest News</string>
+    <string name="_1">1</string>
+    <string name="open_accessibility_settings_by_tapping_the_below_button">Open Accessibility Settings by tapping the below button.</string>
+    <string name="_2">2</string>
+    <string name="tap_installed_apps_or_installed_services_and_select_kavach_digital_protection">Tap Installed Apps or Installed services and Select Kavach Digital Protection.</string>
+    <string name="tap_the_toggle_to_give_us_permission">Tap the toggle to give us permission.</string>
+    <string name="_3">3</string>
+    <string name="go_to_settings">Go To Settings</string>
+    <string name="privacy_note">Privacy Note</string>
+    <string name="by_allowing_a_part_of_the_accessibility_permission_you_permit_kavach_to_scan_the_url_s_visited_in_real_time_only_we_will_not_be_storing_any_personal_information_and_will_not_be_tracking_any_usage_no_data_will_be_shared_with_any_3rd_party_and_we_are_fully_complaint_with_the_security_and_privacy_guidelines">By allowing a part of the accessibility permission, you permit Kavach to scan the URl’s visited in real time only. We will not be storing any personal information and will not be tracking any usage. No data will be shared with any 3rd party and we are fully complaint with the security and privacy guidelines.</string>
+    <string name="disagree">Disagree</string>
+    <string name="agree">Agree</string>
 </resources>

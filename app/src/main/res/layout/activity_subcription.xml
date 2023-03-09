@@ -24,14 +24,13 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_18sdp">
 
-
                 <include layout="@layout/layout_back" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="@dimen/_10sdp"
                     app:srcCompat="@drawable/subscription" />
 
                 <com.google.android.material.textview.MaterialTextView
@@ -75,8 +74,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
-                        android:layout_marginStart="@dimen/_minus8sdp"
-                        android:layout_marginEnd="@dimen/_minus8sdp"
+                            android:layout_marginStart="@dimen/_minus8sdp"
+                            android:layout_marginEnd="@dimen/_minus8sdp"
                             android:drawableStart="@drawable/subscription_icon"
                             android:drawablePadding="@dimen/_3sdp"
                             android:text="@string/introductory_limited_time_offer"
