@@ -1,10 +1,12 @@
 package com.paras.kavach.ui.subscription
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.paras.kavach.R
 import com.paras.kavach.databinding.ActivitySubcriptionBinding
+import com.paras.kavach.ui.home.HomeActivity
 
 class SubscriptionActivity : AppCompatActivity() {
 
@@ -29,7 +31,7 @@ class SubscriptionActivity : AppCompatActivity() {
             }
 
             btProceed.setOnClickListener {
-                //  startActivity(Intent(this@WelcomeDetailActivity, SubscriptionActivity::class.java))
+                startActivity(Intent(this@SubscriptionActivity, HomeActivity::class.java))
             }
         }
     }

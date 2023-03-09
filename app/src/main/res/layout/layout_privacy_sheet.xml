@@ -8,16 +8,14 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@android:color/transparent"
         android:layout_height="wrap_content"
-      >
-
+        android:background="@android:color/transparent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/sheet_color_pink"
             android:layout_marginTop="@dimen/_13sdp"
+            android:background="@color/sheet_color_pink"
             android:orientation="vertical"
             android:padding="@dimen/_16sdp">
 
@@ -30,7 +28,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:srcCompat="@drawable/privacy_note" />
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -51,11 +48,13 @@
                         android:layout_marginTop="@dimen/_6sdp"
                         android:text="@string/by_allowing_a_part_of_the_accessibility_permission_you_permit_kavach_to_scan_the_url_s_visited_in_real_time_only_we_will_not_be_storing_any_personal_information_and_will_not_be_tracking_any_usage_no_data_will_be_shared_with_any_3rd_party_and_we_are_fully_complaint_with_the_security_and_privacy_guidelines"
                         android:textSize="@dimen/_12ssp" />
+
                 </LinearLayout>
+
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnStart"
+                android:id="@+id/btnAgree"
                 style="@style/maven_pro_semibold_button_style_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,19 +74,22 @@
                 app:backgroundTint="@color/sheet_color_pink"
                 app:strokeColor="@color/white_50"
                 app:strokeWidth="@dimen/_1sdp" />
+
         </LinearLayout>
 
         <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivCross"
             android:layout_width="@dimen/_27sdp"
             android:layout_height="@dimen/_27sdp"
-            android:cropToPadding="false"
-            android:padding="@dimen/_4sdp"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/_24sdp"
+            android:cropToPadding="false"
+            android:padding="@dimen/_4sdp"
             app:shapeAppearanceOverlay="@style/shape_50"
             app:srcCompat="@drawable/close_white"
             app:strokeColor="@color/black"
             app:strokeWidth="@dimen/_4sdp" />
 
     </RelativeLayout>
+
 </layout>

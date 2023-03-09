@@ -70,10 +70,11 @@
                         android:paddingVertical="@dimen/_14sdp">
 
                         <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/ivInfo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/_minus14sdp"
-                            android:layout_marginEnd="@dimen/_1sdp"
+                            android:layout_marginTop="@dimen/_minus15sdp"
+                            android:padding="@dimen/_6sdp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/info_home" />

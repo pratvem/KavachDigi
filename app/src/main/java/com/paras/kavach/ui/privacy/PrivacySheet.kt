@@ -8,7 +8,10 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.paras.kavach.databinding.LayoutPrivacySheetBinding
 
 class PrivacySheet : BottomSheetDialogFragment() {
-    lateinit var binding: LayoutPrivacySheetBinding
+
+    private lateinit var binding: LayoutPrivacySheetBinding
+    var callback: (() -> Unit)? = null
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -17,4 +20,32 @@ class PrivacySheet : BottomSheetDialogFragment() {
         binding = LayoutPrivacySheetBinding.inflate(layoutInflater, container, false)
         return binding.root.rootView
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        /** Click Listeners */
+        clickListeners()
+    }
+
+    /**
+     * Click Listeners
+     */
+    private fun clickListeners() {
+        binding.apply {
+            ivCross.setOnClickListener {
+                dismiss()
+            }
+
+            btnDisagree.setOnClickListener {
+                dismiss()
+            }
+
+            btnAgree.setOnClickListener {
+                callback?.invoke()
+                dismiss()
+            }
+        }
+    }
+
 }
