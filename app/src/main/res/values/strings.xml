@@ -41,4 +41,11 @@
     <string name="by_allowing_a_part_of_the_accessibility_permission_you_permit_kavach_to_scan_the_url_s_visited_in_real_time_only_we_will_not_be_storing_any_personal_information_and_will_not_be_tracking_any_usage_no_data_will_be_shared_with_any_3rd_party_and_we_are_fully_complaint_with_the_security_and_privacy_guidelines">By allowing a part of the accessibility permission, you permit Kavach to scan the URl’s visited in real time only. We will not be storing any personal information and will not be tracking any usage. No data will be shared with any 3rd party and we are fully complaint with the security and privacy guidelines.</string>
     <string name="disagree">Disagree</string>
     <string name="agree">Agree</string>
+    <string name="use_kavach_digital_fraud_shield">Use Kavach Digital Fraud Shield</string>
+    <string name="use_kavach_digital_fraud_shield_shortcut">Use Kavach Digital Fraud Shield Shortcut</string>
+    <string name="kavach_uses_a_part_of_the_android_accessibility_service_to_check_the_url_s_clicked_on_real_time_this_can_protect_you_from_the_rising_frauds_while_feeling_safe_that_no_personal_information_is_collected_or_tracked">Kavach uses a part of the Android Accessibility Service to check the URL’s clicked on real time. This can protect you from the rising frauds while feeling safe that no personal information is collected or tracked.</string>
+    <string name="kavach_will_only_use_the_accessibility_service_to_scan_the_url_in_a_browser_real_time_while_browsing_shopping_or_banking_it_cannot_view_or_control_your_screen_at_any_point_as_the_default_notification_of_android_may_show_please_check_our_privacy_policy_and_more_detail_on_permission_accessed_on_our_website">Kavach will only use the accessibility service to scan the URL in a browser real time while browsing, shopping or banking. It cannot view or control your screen at any point as the default notification of android may show. Please check our privacy policy and more detail on permission accessed on our website.</string>
+    <string name="save">Save</string>
+    <string name="need_limited_permission_to_protect_you">Need limited permission to protect you</string>
+    <string name="ok">Ok</string>
 </resources>
