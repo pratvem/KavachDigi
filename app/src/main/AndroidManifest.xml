@@ -20,7 +20,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".SettingActivity"
+            android:name=".ui.accessibility.AccessibilityActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.setting.SettingActivity"
             android:exported="false" />
         <activity
             android:name=".ui.home.HomeActivity"
