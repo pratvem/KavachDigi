@@ -8,26 +8,28 @@
     </data>
 
     <LinearLayout
+        android:id="@+id/llBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_1sdp"
-            app:srcCompat="@drawable/back_arrow"
-            android:layout_height="wrap_content" />
+            app:srcCompat="@drawable/back_arrow" />
 
         <com.google.android.material.textview.MaterialTextView
             style="@style/maven_pro_regular_text_style"
             android:layout_width="wrap_content"
-            android:includeFontPadding="false"
-            android:layout_marginStart="@dimen/_2sdp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:includeFontPadding="false"
             android:text="@string/back"
             android:textSize="@dimen/_12ssp" />
+
     </LinearLayout>
+
 </layout>
 

@@ -3,11 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         tools:context=".ui.welCome.WelcomeActivity">
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -26,22 +24,15 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
                 app:srcCompat="@drawable/logo_kavach" />
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/maven_pro_regular_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_4sdp"
                 android:text="@string/always_be_safe"
                 android:textSize="@dimen/_18ssp" />
-
-            <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="wrap_content"
-
-                android:layout_height="wrap_content" />
-
 
         </LinearLayout>
 
@@ -49,8 +40,8 @@
             style="@style/maven_pro_medium_text_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_above="@id/btnStart"
+            android:layout_marginHorizontal="@dimen/_16sdp"
             android:gravity="center"
             android:text="@string/by_proceeding_you_confirm_you_accept_kavach_s_agreement_privacy_policy" />
 
@@ -58,10 +49,11 @@
             android:id="@+id/btnStart"
             style="@style/maven_pro_semibold_button_style_login"
             android:layout_width="match_parent"
-            android:layout_marginBottom="@dimen/_20sdp"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/_20sdp"
             android:text="@string/let_s_start" />
 
     </RelativeLayout>
+
 </layout>

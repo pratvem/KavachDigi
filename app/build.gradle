@@ -18,7 +18,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField 'String', 'BASE_URL', "\"https://easyebikesinc.com/app/\""
+        buildConfigField 'String', 'BASE_URL', "\"http://44.204.127.3/check_website/\""
     }
 
     buildTypes {
@@ -46,7 +46,7 @@ dependencies {
 
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
@@ -56,7 +56,7 @@ dependencies {
     implementation 'com.intuit.ssp:ssp-android:1.1.0'
 
     // Dagger
-    def hilt_version = "2.42"
+    def hilt_version = "2.44"
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
     kapt 'androidx.hilt:hilt-compiler:1.0.0'
@@ -79,5 +79,10 @@ dependencies {
     def coroutines_version = "1.6.4"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+
+    /** Navigation component */
+    def nav_version = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation("com.tbuonomo:dotsindicator:4.3")
 }

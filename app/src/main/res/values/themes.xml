@@ -67,4 +67,10 @@
     <style name="shape_50">
         <item name="cornerSize">50%</item>
     </style>
+
+    <style name="AppTheme.MaterialDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryDark">@color/purple_700</item>
+        <item name="colorAccent">@color/teal_200</item>
+    </style>
 </resources>

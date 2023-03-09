@@ -1,13 +1,23 @@
 package com.paras.kavach.utils.services
 
 import android.accessibilityservice.AccessibilityService
-import android.util.Log
 import android.util.Patterns
 import android.view.accessibility.AccessibilityEvent
-import android.view.accessibility.AccessibilityNodeInfo
+import androidx.appcompat.app.AlertDialog
+import com.paras.kavach.R
+import com.paras.kavach.data.repository.ApiRepository
+import com.paras.kavach.utils.getSystemFlag
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-
+@AndroidEntryPoint
 class BrowserFraudService : AccessibilityService() {
+
+    @Inject
+    lateinit var apiRepository: ApiRepository
     private var browserApp = ""
     private var browserUrl = ""
 
@@ -18,8 +28,8 @@ class BrowserFraudService : AccessibilityService() {
         ) {
             val parentNodeInfo = event.source ?: return
             val packageName = event.packageName.toString()
-            var browserConfig: SupportedBrowserConfig? = null
-            for (supportedConfig in getSupportedBrowsers()) {
+            var browserConfig: BrowserFraudUtils.SupportedBrowserConfig? = null
+            for (supportedConfig in BrowserFraudUtils.getSupportedBrowsers()) {
                 if (supportedConfig.packageName == packageName) {
                     browserConfig = supportedConfig
                 }
@@ -28,74 +38,76 @@ class BrowserFraudService : AccessibilityService() {
             if (browserConfig == null) {
                 return
             }
-            val capturedUrl = captureUrl(parentNodeInfo, browserConfig)
+            val capturedUrl = BrowserFraudUtils.captureUrl(parentNodeInfo, browserConfig)
             parentNodeInfo.recycle()
-            //   parentNodeInfo.refresh()
             if (capturedUrl == null) {
                 return
             }
 
-//            val eventTime = event.eventTime
             if (packageName != browserApp) {
-                if (Patterns.WEB_URL.matcher(capturedUrl).matches()) {
-                    Log.e("Browser", "$packageName  :  $capturedUrl")
-//                    MainActivity.onBrowserRecv("$packageName  :  $capturedUrl")
-                    browserApp = packageName
-                    browserUrl = capturedUrl
-                }
+                browserApp = packageName
+                /** Check Url */
+                checkUrl(capturedUrl)
             } else {
                 if (capturedUrl != browserUrl) {
-                    if (Patterns.WEB_URL.matcher(capturedUrl).matches()) {
-                        browserUrl = capturedUrl
-                        Log.e("Browser", "$packageName   $capturedUrl")
-//                        MainActivity.onBrowserRecv("$packageName  :  $capturedUrl")
-                    }
+                    /** Check Url */
+                    checkUrl(capturedUrl)
                 }
             }
-
-
         }
 
     }
 
-    private class SupportedBrowserConfig(var packageName: String, var addressBarId: String)
-
-    private fun getSupportedBrowsers(): List<SupportedBrowserConfig> {
-        val browsers: MutableList<SupportedBrowserConfig> = ArrayList()
-        browsers.add(SupportedBrowserConfig("com.android.chrome", "com.android.chrome:id/url_bar"))
-        return browsers
-    }
-
-    private fun getChild(info: AccessibilityNodeInfo) {
-        val i = info.childCount
-        for (p in 0 until i) {
-            val n = info.getChild(p)
-            if (n != null) {
-                val strres = n.viewIdResourceName
-                if (n.text != null) {
-                    val txt = n.text.toString()
-                    Log.e("Track", "$strres  :  $txt")
-                }
-                getChild(n)
+    /**
+     * Check Url
+     */
+    private fun checkUrl(capturedUrl: String) {
+        browserUrl = capturedUrl
+        if (Patterns.WEB_URL.matcher(capturedUrl).matches()) {
+            var checkUrl = capturedUrl
+            if (capturedUrl.contains("/")) {
+                val separated = capturedUrl.split("/")
+                checkUrl = separated[0]
             }
+            checkWebsiteSecureOrNot(checkUrl)
         }
     }
 
-    private fun captureUrl(info: AccessibilityNodeInfo, config: SupportedBrowserConfig): String? {
-        val nodes = info.findAccessibilityNodeInfosByViewId(config.addressBarId)
-        if (nodes == null || nodes.size <= 0) {
-            return null
-        }
-        val addressBarNodeInfo = nodes[0]
-        var url: String? = null
-        if (addressBarNodeInfo.text != null) {
-            url = addressBarNodeInfo.text.toString()
-        }
-        addressBarNodeInfo.recycle()
-        return url
+    /**
+     * Show Fraud Alert Box
+     */
+    private fun showFraudAlert() {
+        val alertDialog: AlertDialog =
+            AlertDialog.Builder(this, R.style.AppTheme_MaterialDialogTheme)
+                .setTitle("Title")
+                .setMessage("Are you sure?")
+                .create()
+
+        alertDialog.window?.setType(getSystemFlag())
+        alertDialog.show()
     }
 
     override fun onInterrupt() {
 
     }
+
+    /**
+     * Check Website is Secure or Not Api Call
+     */
+    private fun checkWebsiteSecureOrNot(url: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = apiRepository.checkWebsiteIsSecure(url)
+                response.body()?.let {
+                    val result = BrowserFraudUtils.parseJson(it)
+                    if (result == "0") {
+                        showFraudAlert()
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+
 }

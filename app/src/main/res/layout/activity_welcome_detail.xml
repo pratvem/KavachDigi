@@ -16,7 +16,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            tools:ignore="UselessParent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -24,7 +25,9 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_18sdp">
 
-                <include layout="@layout/layout_back" />
+                <include
+                    android:id="@+id/include"
+                    layout="@layout/layout_back" />
 
                 <com.google.android.material.textview.MaterialTextView
                     style="@style/em_garamon_semibold_text_style"
@@ -92,19 +95,22 @@
 
                         android:layout_marginStart="@dimen/_10sdp"
                         android:text="@string/frauds_are_no_longer_limited_to_insecure_websites_or_virus_attacks_we_will_warn_you_if_we_detect_anything_suspicious_fraudulent_which_can_be_an_app_or_a_website_or_a_link_and_much_more"
-                        android:textSize="@dimen/_12ssp"/>
+                        android:textSize="@dimen/_12ssp" />
 
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnStart"
+                    android:id="@+id/btProceed"
                     style="@style/maven_pro_semibold_button_style_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="0dp"
-
                     android:text="@string/proceed" />
+
             </LinearLayout>
+
         </ScrollView>
+
     </RelativeLayout>
+
 </layout>

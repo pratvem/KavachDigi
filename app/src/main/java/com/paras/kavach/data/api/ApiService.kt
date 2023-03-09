@@ -1,11 +1,15 @@
 package com.paras.kavach.data.api
 
+import com.google.gson.JsonObject
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Url
+
 interface ApiService {
 
-//    @FormUrlEncoded
-//    @POST(ConstantUtil.USER_LOGIN)
-//    suspend fun userLogin(
-//        @FieldMap map: HashMap<String, String>
-//    ): Response<LoginModel>
+    @GET
+    suspend fun checkWebsiteIsSecure(
+        @Url baseUrl: String
+    ): Response<JsonObject>
 
 }

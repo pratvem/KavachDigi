@@ -16,7 +16,8 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            tools:ignore="UselessParent">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -24,7 +25,9 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_18sdp">
 
-                <include layout="@layout/layout_back" />
+                <include
+                    android:id="@+id/include"
+                    layout="@layout/layout_back" />
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:layout_width="wrap_content"
@@ -109,6 +112,7 @@
                                 android:layout_marginStart="@dimen/_7sdp"
                                 android:lineSpacingExtra="@dimen/_4sdp"
                                 android:text="@string/any_url_s_link_shield" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -130,6 +134,7 @@
                                 android:layout_marginStart="@dimen/_7sdp"
                                 android:lineSpacingExtra="@dimen/_4sdp"
                                 android:text="@string/no_ads" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -151,8 +156,8 @@
                                 android:layout_marginStart="@dimen/_7sdp"
                                 android:lineSpacingExtra="@dimen/_4sdp"
                                 android:text="@string/introductory_offer_of_free_additional_protections_released_in_the_next_3_months" />
-                        </LinearLayout>
 
+                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -171,7 +176,6 @@
                     style="@style/maven_pro_regular_text_style"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/_4sdp"
                     android:text="@string/digital_fraud_protection"
@@ -180,7 +184,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="0dp"
@@ -189,7 +194,6 @@
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:layout_weight="1"
                         android:background="@drawable/stroke_gradient">
-
 
                         <TextView
                             android:id="@+id/tvRs"
@@ -234,7 +238,6 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/check_round" />
 
-
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -244,7 +247,6 @@
                         android:layout_marginTop="@dimen/_18sdp"
                         android:layout_weight="1"
                         android:background="@drawable/stroke_light_white">
-
 
                         <TextView
                             android:id="@+id/tvRs2"
@@ -290,21 +292,22 @@
                             app:layout_constraintTop_toTopOf="parent"
                             app:srcCompat="@drawable/check_round" />
 
-
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnStart"
+                    android:id="@+id/btProceed"
                     style="@style/maven_pro_semibold_button_style_login"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="0dp"
                     android:text="@string/proceed" />
+
             </LinearLayout>
 
         </ScrollView>
 
     </RelativeLayout>
+
 </layout>
