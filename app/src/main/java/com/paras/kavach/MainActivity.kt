@@ -9,9 +9,10 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import android.text.TextUtils.SimpleStringSplitter
+import android.text.method.ScrollingMovementMethod
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import com.paras.kavach.databinding.ActivityMainBinding
-import com.paras.kavach.ui.welCome.WelcomeActivity
 import com.paras.kavach.utils.services.BrowserFraudService
 
 
@@ -21,15 +22,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        startActivity(Intent(this, WelcomeActivity::class.java))
-//        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-//
-//        binding.button.setOnClickListener {
-//            val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-//            startActivity(intent)
-//        }
-//        doInit()
+//        setContentView(R.layout.activity_main)
+//        startActivity(Intent(this, WelcomeActivity::class.java))
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.button.setOnClickListener {
+            val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+            startActivity(intent)
+        }
+        doInit()
     }
 
     @SuppressLint("SetTextI18n")
@@ -78,14 +79,14 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-//        binding.apply {
-//            textView3.text = strLogs
-//            textView3.movementMethod = ScrollingMovementMethod()
-//        }
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
-//            openOverlaySettings()
-//        }
+        binding.apply {
+            textView3.text = strLogs
+            textView3.movementMethod = ScrollingMovementMethod()
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
+            openOverlaySettings()
+        }
     }
 
     private fun openOverlaySettings() {

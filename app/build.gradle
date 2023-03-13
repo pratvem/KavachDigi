@@ -85,4 +85,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     implementation("com.tbuonomo:dotsindicator:4.3")
+
+    // In-App Purchase Billing
+    implementation 'com.android.billingclient:billing-ktx:5.1.0'
 }

@@ -13,6 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
 @AndroidEntryPoint
 class BrowserFraudService : AccessibilityService() {
 
@@ -69,7 +70,9 @@ class BrowserFraudService : AccessibilityService() {
                 val separated = capturedUrl.split("/")
                 checkUrl = separated[0]
             }
-            checkWebsiteSecureOrNot(checkUrl)
+
+            showFraudAlert()
+            //checkWebsiteSecureOrNot(checkUrl)
         }
     }
 
@@ -81,10 +84,50 @@ class BrowserFraudService : AccessibilityService() {
             AlertDialog.Builder(this, R.style.AppTheme_MaterialDialogTheme)
                 .setTitle("Title")
                 .setMessage("Are you sure?")
+                .setNeutralButton(
+                    R.string.proceed
+                ) { p0, p1 ->
+//                    val intent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
+//                    sendBroadcast(intent)
+                }
                 .create()
 
         alertDialog.window?.setType(getSystemFlag())
         alertDialog.show()
+
+//        if (eventType === AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) {
+//// Check if the current activity is Chrome
+//            if (event.getPackageName().equals("com.android.chrome")) {
+//// Check if the event is a button click
+//                if (event.getClassName().equals("android.widget.Button")) {
+//// Check if the clicked button is the exit page button
+//                    if (event.getText().toString().equalsIgnoreCase("Exit Page")) {
+//// Send an intent to Chrome to close the current tab
+//                        val intent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
+//                        sendBroadcast(intent)
+//                    } else if (event.getText().toString().equalsIgnoreCase("Proceed Anyway")) {
+//// Do nothing or perform any other desired action
+//                    }
+//                }
+//            }
+//        }
+
+
+//        if (eventAccess == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) {
+//// Check if the current activity is Chrome
+//            if (event.getPackageName().equals("com.android.chrome")) {
+//// Check if the event is a button click
+//                if (event.getClassName().equals("android.widget.Button")) {
+//// Check if the clicked button is the exit page button
+//                    if (event.getText().toString().equalsIgnoreCase("Exit Page")) {
+//// Send an intent to Chrome to close the current tab
+//                        val intent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
+//                        sendBroadcast(intent)
+//                    }
+//                }
+//            }
+//        }
+
     }
 
     override fun onInterrupt() {

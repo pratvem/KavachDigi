@@ -36,9 +36,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.welCome.WelcomeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -50,6 +47,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
 
         <service
             android:name=".utils.services.BrowserFraudService"
