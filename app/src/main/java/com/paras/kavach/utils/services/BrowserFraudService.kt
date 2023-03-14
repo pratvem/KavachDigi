@@ -2,10 +2,14 @@ package com.paras.kavach.utils.services
 
 import android.accessibilityservice.AccessibilityService
 import android.util.Patterns
+import android.view.LayoutInflater
 import android.view.accessibility.AccessibilityEvent
 import androidx.appcompat.app.AlertDialog
+import com.android.billingclient.api.*
 import com.paras.kavach.R
+import com.paras.kavach.data.local.prefs.SharedPrefs
 import com.paras.kavach.data.repository.ApiRepository
+import com.paras.kavach.databinding.DialogWarningBinding
 import com.paras.kavach.utils.getSystemFlag
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -18,9 +22,13 @@ import javax.inject.Inject
 class BrowserFraudService : AccessibilityService() {
 
     @Inject
+    lateinit var sharedPrefs: SharedPrefs
+
+    @Inject
     lateinit var apiRepository: ApiRepository
     private var browserApp = ""
     private var browserUrl = ""
+    private lateinit var billingClient: BillingClient
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
         if (event.eventType == AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED ||
@@ -63,75 +71,107 @@ class BrowserFraudService : AccessibilityService() {
      * Check Url
      */
     private fun checkUrl(capturedUrl: String) {
-        browserUrl = capturedUrl
-        if (Patterns.WEB_URL.matcher(capturedUrl).matches()) {
-            var checkUrl = capturedUrl
-            if (capturedUrl.contains("/")) {
-                val separated = capturedUrl.split("/")
-                checkUrl = separated[0]
-            }
+        /** Initialize Google Billing Client */
+        initBillingClient(capturedUrl)
 
-            showFraudAlert()
-            //checkWebsiteSecureOrNot(checkUrl)
-        }
+        browserUrl = capturedUrl
+//        if (Patterns.WEB_URL.matcher(capturedUrl).matches()) {
+//            var checkUrl = capturedUrl
+//            if (capturedUrl.contains("/")) {
+//                val separated = capturedUrl.split("/")
+//                checkUrl = separated[0]
+//            }
+//
+//            showFraudAlert()
+//            //checkWebsiteSecureOrNot(checkUrl)
+//        }
     }
 
     /**
      * Show Fraud Alert Box
      */
     private fun showFraudAlert() {
-        val alertDialog: AlertDialog =
-            AlertDialog.Builder(this, R.style.AppTheme_MaterialDialogTheme)
-                .setTitle("Title")
-                .setMessage("Are you sure?")
-                .setNeutralButton(
-                    R.string.proceed
-                ) { p0, p1 ->
-//                    val intent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
-//                    sendBroadcast(intent)
-                }
-                .create()
+        val binding = DialogWarningBinding.inflate(LayoutInflater.from(this))
+        val dialogBuilder = AlertDialog.Builder(this,  R.style.AppTheme_MaterialDialogTheme)
+        dialogBuilder.setView(binding.root)
 
+
+        val alertDialog = dialogBuilder.create()
         alertDialog.window?.setType(getSystemFlag())
         alertDialog.show()
 
-//        if (eventType === AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) {
-//// Check if the current activity is Chrome
-//            if (event.getPackageName().equals("com.android.chrome")) {
-//// Check if the event is a button click
-//                if (event.getClassName().equals("android.widget.Button")) {
-//// Check if the clicked button is the exit page button
-//                    if (event.getText().toString().equalsIgnoreCase("Exit Page")) {
-//// Send an intent to Chrome to close the current tab
-//                        val intent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
-//                        sendBroadcast(intent)
-//                    } else if (event.getText().toString().equalsIgnoreCase("Proceed Anyway")) {
-//// Do nothing or perform any other desired action
-//                    }
-//                }
-//            }
-//        }
-
-
-//        if (eventAccess == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) {
-//// Check if the current activity is Chrome
-//            if (event.getPackageName().equals("com.android.chrome")) {
-//// Check if the event is a button click
-//                if (event.getClassName().equals("android.widget.Button")) {
-//// Check if the clicked button is the exit page button
-//                    if (event.getText().toString().equalsIgnoreCase("Exit Page")) {
-//// Send an intent to Chrome to close the current tab
-//                        val intent = Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS)
-//                        sendBroadcast(intent)
-//                    }
-//                }
-//            }
-//        }
-
+//        val alertDialog: AlertDialog =
+//            AlertDialog.Builder(this, R.style.AppTheme_MaterialDialogTheme)
+////                .setTitle("Title")
+////                .setMessage("Are you sure?")
+////                .setNeutralButton(
+////                    R.string.proceed
+////                ) { p0, p1 ->
+////
+////                }
+////                .create()
+//
+//        alertDialog.window?.setType(getSystemFlag())
+//        alertDialog.show()
     }
 
     override fun onInterrupt() {
 
+    }
+
+    /**
+     * Initialize Google Billing Client
+     */
+    private fun initBillingClient(capturedUrl: String) {
+        billingClient = BillingClient.newBuilder(this)
+            .enablePendingPurchases()
+            .setListener { _, _ ->
+
+            }
+            .build()
+
+        billingClient.startConnection(object : BillingClientStateListener {
+            override fun onBillingServiceDisconnected() {
+
+            }
+
+            override fun onBillingSetupFinished(p0: BillingResult) {
+                getPurchasedList(capturedUrl)
+            }
+        })
+    }
+
+    /**
+     * Get Previous Purchase List
+     */
+    private fun getPurchasedList(capturedUrl: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val params = QueryPurchaseHistoryParams.newBuilder()
+                .setProductType(BillingClient.ProductType.SUBS)
+
+            val purchaseHistoryResult = billingClient.queryPurchaseHistory(params.build())
+
+            purchaseHistoryResult.purchaseHistoryRecordList?.get(0)?.purchaseTime?.let {
+                val isExpired = BrowserFraudUtils.checkExpirePurchase(
+                    it
+                )
+                if(!isExpired) {
+                    if (Patterns.WEB_URL.matcher(capturedUrl).matches()) {
+                        var checkUrl = capturedUrl
+                        if (capturedUrl.contains("/")) {
+                            val separated = capturedUrl.split("/")
+                            checkUrl = separated[0]
+                        }
+
+                        CoroutineScope(Dispatchers.Main).launch {
+                            showFraudAlert()
+                        }
+                      //  showFraudAlert()
+                        //checkWebsiteSecureOrNot(checkUrl)
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -152,5 +192,6 @@ class BrowserFraudService : AccessibilityService() {
             }
         }
     }
+
 
 }

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.paras.kavach.R
 import com.paras.kavach.databinding.LayoutPrivacySheetBinding
 
 class PrivacySheet : BottomSheetDialogFragment() {
@@ -19,6 +20,11 @@ class PrivacySheet : BottomSheetDialogFragment() {
     ): View? {
         binding = LayoutPrivacySheetBinding.inflate(layoutInflater, container, false)
         return binding.root.rootView
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL, R.style.TransparentBottomSheetDialog)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

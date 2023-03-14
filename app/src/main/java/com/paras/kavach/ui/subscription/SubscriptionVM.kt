@@ -56,7 +56,6 @@ class SubscriptionVM : ViewModel() {
     }
 
     private fun launchBillingFlow(activity: SubscriptionActivity, planId: String) {
-        Log.e("Plan Id", planId)
         try {
             val queryProductDetailsParams =
                 QueryProductDetailsParams.newBuilder()
@@ -120,6 +119,7 @@ class SubscriptionVM : ViewModel() {
         val ackPurchaseResult = withContext(Dispatchers.IO) {
             billingClient.queryPurchasesAsync(queryPurchasesParams)
         }
+        purchaseSuccessResMLD.postValue(true)
         Log.e("List", "" + ackPurchaseResult.purchasesList)
     }
 

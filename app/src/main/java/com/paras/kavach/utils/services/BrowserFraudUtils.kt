@@ -3,6 +3,7 @@ package com.paras.kavach.utils.services
 import android.view.accessibility.AccessibilityNodeInfo
 import com.google.gson.JsonObject
 import org.json.JSONObject
+import java.util.*
 
 object BrowserFraudUtils {
 
@@ -38,6 +39,14 @@ object BrowserFraudUtils {
         }
         val index = columnArrayList.indexOf("result")
         return dataArray.getString(index)
+    }
+
+    fun checkExpirePurchase(time: Long): Boolean {
+        val currentCal = Calendar.getInstance(Locale.ENGLISH)
+        val cal = Calendar.getInstance(Locale.ENGLISH)
+        cal.timeInMillis = time * 1000
+        cal.add(Calendar.YEAR, 1)
+        return cal.before(currentCal)
     }
 
 }

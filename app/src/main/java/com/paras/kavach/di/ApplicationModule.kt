@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.paras.kavach.BuildConfig
 import com.paras.kavach.data.api.ApiService
-import com.paras.kavach.data.local.prefs.SharedPrefs
 import com.paras.kavach.utils.AppConstant
 import dagger.Module
 import dagger.Provides
@@ -41,10 +40,7 @@ class ApplicationModule {
 
     @Provides
     @Singleton
-    fun provideInterceptor(
-        sharedPrefs: SharedPrefs,
-        @ApplicationContext context: Context
-    ): Interceptor {
+    fun provideInterceptor(): Interceptor {
         return Interceptor { chain ->
             val request: Request = chain.request().newBuilder().build()
             val apiResponse = chain.proceed(request)

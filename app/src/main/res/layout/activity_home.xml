@@ -18,9 +18,9 @@
 
         <RelativeLayout
             android:id="@+id/rlToolbar"
-            android:layout_marginHorizontal="@dimen/_16sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
 
             android:clipToPadding="false"
             tools:context=".ui.home.HomeActivity">
@@ -56,8 +56,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_24sdp"
                     android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_24sdp"
+                    android:baselineAligned="false"
                     android:orientation="horizontal">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -68,6 +69,18 @@
                         android:background="@drawable/box_active"
                         android:clipToPadding="false"
                         android:paddingVertical="@dimen/_14sdp">
+
+                        <ImageView
+                            android:id="@+id/ivCheck"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_minus15sdp"
+                            android:padding="@dimen/_7sdp"
+                            android:src="@drawable/check_round"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="ContentDescription" />
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/ivInfo"
@@ -99,6 +112,7 @@
                             android:text="@string/protection_from_phishing_fraud_links"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/ivMailLogo" />
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -109,7 +123,6 @@
                         android:background="@drawable/box"
                         android:clipToPadding="false"
                         android:paddingVertical="@dimen/_14sdp">
-
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/ivBluetoothLogo"
@@ -131,7 +144,9 @@
                             android:textColor="@color/white_50"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/ivBluetoothLogo" />
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -139,6 +154,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/_16sdp"
                     android:layout_marginTop="@dimen/_10sdp"
+                    android:baselineAligned="false"
                     android:orientation="horizontal">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -149,7 +165,6 @@
                         android:background="@drawable/box"
                         android:clipToPadding="false"
                         android:paddingVertical="@dimen/_14sdp">
-
 
                         <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/ivWhatsLogo"
@@ -181,7 +196,6 @@
                         android:clipToPadding="false"
                         android:paddingVertical="@dimen/_14sdp">
 
-
                         <com.google.android.material.imageview.ShapeableImageView
                             android:id="@+id/ivAppLogo"
                             android:layout_width="wrap_content"
@@ -201,7 +215,9 @@
                             android:textColor="@color/white_50"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintTop_toBottomOf="@id/ivAppLogo" />
+
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </LinearLayout>
 
                 <com.google.android.material.textview.MaterialTextView
@@ -216,10 +232,11 @@
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/viewPager"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_14ssp"
                     android:clipToPadding="false"
                     android:paddingStart="@dimen/_16sdp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_14ssp" />
+                    tools:ignore="RtlSymmetry" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvIndicator"
@@ -230,8 +247,11 @@
                     android:orientation="horizontal"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_selected_pager" />
+
             </LinearLayout>
+
         </ScrollView>
+
     </RelativeLayout>
 
 </layout>

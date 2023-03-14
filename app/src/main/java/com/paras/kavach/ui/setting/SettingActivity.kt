@@ -80,12 +80,15 @@ class SettingActivity : AppCompatActivity() {
             val privacySheet = PrivacySheet()
             privacySheet.show(supportFragmentManager, "")
             privacySheet.callback = {
-                startActivity(
-                    Intent(
-                        this@SettingActivity,
-                        AccessibilityActivity::class.java
-                    )
-                )
+                val intent = Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+                startActivity(intent)
+
+//                startActivity(
+//                    Intent(
+//                        this@SettingActivity,
+//                        AccessibilityActivity::class.java
+//                    )
+//                )
             }
         }
     }

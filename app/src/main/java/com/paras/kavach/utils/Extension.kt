@@ -19,7 +19,7 @@ fun String.longToast(context: Context) {
 }
 
 fun String.log() {
-    Log.e("E-Bike", this)
+    Log.e("Kavach", this)
 }
 
 fun String.shortToast(context: Context) {
