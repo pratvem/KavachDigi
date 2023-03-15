@@ -48,10 +48,6 @@
                 android:value="" />
         </activity>
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-
         <service
             android:name=".utils.services.BrowserFraudService"
             android:exported="true"
